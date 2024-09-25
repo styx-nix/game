@@ -1,3 +1,4 @@
+// /pages/index.js
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -5,13 +6,19 @@ import { useRouter } from 'next/router';
 export default function Home() {
   const router = useRouter();
 
-  // Redirect to login if not logged in
   useEffect(() => {
     const username = localStorage.getItem('username');
     if (!username) {
       router.push('/login');
     }
   }, []);
+
+  // Log out function
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('inventory');
+    router.push('/login');
+  };
 
   useEffect(() => {
     const callback = (entries) => {
@@ -45,8 +52,10 @@ export default function Home() {
         <section className="fade-in-section second-section">
           <button onClick={() => router.push('/shop')}>Go to Shop</button>
           <button onClick={() => router.push('/inventory')}>Go to Inventory</button>
+          <button onClick={handleLogout}>Log Out</button> {/* New Logout Button */}
         </section>
       </main>
     </div>
   );
 }
+
