@@ -44,21 +44,35 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: #45a049;
+  transform: scale(1.05); /* Makes the button slightly bigger on hover */
 }
 
-.inventory-container {
+.inventory-container, .shop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   text-align: center;
 }
 
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin: 20px auto;
+  gap: 20px;
+  margin: 20px 0;
+  width: 80%;
+  max-width: 1200px;
+}
+
+/* Shop container for centering */
+.shop-container {
+  text-align: center;
 }
 
 .inventory-slot {
@@ -68,3 +82,4 @@ button:hover {
   border-radius: 8px;
   text-align: center;
 }
+
