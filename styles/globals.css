@@ -28,20 +28,21 @@ p {
   align-items: center;
 }
 
-/* Section Styling */
-section {
-  width: 100%;
-  padding: 100px 0;
-  margin: 0;
+/* Full page sections */
+.full-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Animations */
 .is-visible {
   opacity: 1;
 }
 
+/* Animations */
 .fade-in {
   transform: translateY(20px);
 }
@@ -91,6 +92,22 @@ section {
   transform: translateY(0);
 }
 
+.spin-in {
+  transform: rotate(-180deg);
+}
+
+.spin-in.is-visible {
+  transform: rotate(0deg);
+}
+
+.slide-left {
+  transform: translateX(100%);
+}
+
+.slide-left.is-visible {
+  transform: translateX(0);
+}
+
 /* Footer */
 footer {
   padding: 50px 0;
@@ -98,4 +115,3 @@ footer {
   font-size: 1.1rem;
   color: #777;
 }
-
